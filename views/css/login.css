@@ -9,55 +9,7 @@ display-flex, .display-flex, .display-flex-center {
     margin: 0;
     padding: 0; }
   
-  /* Montserrat-300 - latin */
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 300;
-    src: url("../fonts/montserrat/Montserrat-Light.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: url("../fonts/montserrat/Montserrat-Regular.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: italic;
-    font-weight: 400;
-    src: url("../fonts/montserrat/Montserrat-Italic.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    src: url("../fonts/montserrat/Montserrat-Medium.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    src: url("../fonts/montserrat/Montserrat-SemiBold.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    src: url("../fonts/montserrat/Montserrat-Bold.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: italic;
-    font-weight: 700;
-    src: url("../fonts/montserrat/Montserrat-BoldItalic.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: italic;
-    font-weight: 900;
-    src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"), url("../fonts/montserrat/montserrat-v12-latin-900.eot") format("embedded-opentype"), url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"), url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"), url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype"); }
-  a:focus, a:active {
+   a:focus, a:active {
     text-decoration: none;
     outline: none;
     transition: all 300ms ease 0s;
@@ -124,7 +76,7 @@ display-flex, .display-flex, .display-flex-center {
     margin: 0;
     padding: 0;
     font-weight: 900;
-    font-family: 'Montserrat';
+    font-family: 'Roboto';
     font-size: 24px;
     text-transform: uppercase;
     text-align: center;
@@ -137,8 +89,8 @@ display-flex, .display-flex, .display-flex-center {
     font-size: 14px;
     line-height: 1.8;
     color: #222;
+    font-family: 'Roboto';
     font-weight: 400;
-    font-family: 'Montserrat';
     background-image: url("../image/signup-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
