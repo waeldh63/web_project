@@ -147,8 +147,13 @@ display-flex, .display-flex, .display-flex-center {
     -o-background-size: cover;
     -ms-background-size: cover;
     background-position: center center;
-    padding: 17px 0; }
-  
+  }
+  .mssg{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+      color: red;
+  }
   .container {
     width: 660px;
     position: relative;

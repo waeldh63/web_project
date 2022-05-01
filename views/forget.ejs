@@ -7,6 +7,9 @@
 	</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/login.css">
+	<link rel="stylesheet" href="./css/style.css">
+
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -43,17 +46,42 @@
 	</script>
 </head>
 <body>
+	<div class="header-area " style="background-color: black;">
+		<div class="navbar-area">
+			<nav class="site-navbar">
 
-		<div class="col-md-4 col-md-offset-4">
+			  <!-- site logo -->
+				  <a href="/" class="site-logo">CHUNK </a>
+				  
+			  <!-- site menu/nav -->
+			  <ul >
+				<li><a href="#">Browse Food</a></li>
+				<li><a href="#">About us</a></li>
+				<li><a href="#">Contact us</a></li>
+				<li><a href="#">Download App</a></li>
+				<li><a href="/register">Register</a></li>
+			  </ul>
+
+			  <!-- nav-toggler for mobile version only -->
+			  <button class="nav-toggler">
+				<span></span>
+			  </button>
+
+			</nav>
+		</div>
+
+  </div>
+	<br>
+		<div class="col-md-4 col-md-offset-4 signup-content">
 			<div>
-				<p>Change Password</p>
+				<h2 class="form-title"> Forget Password</h2>
 			</div>
 			<div class="form-group">
 				<form id="form2" method="post">
 					<input type="text" name="email" placeholder="E-mail" required="" class="form-control"><br/>
 					<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
 					<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
-					<input type="submit" value="Change" class="btn btn-success">
+					<input type="submit" value="Change" class="form-submit">
 				</form>
 			</div>
 			<div  class="mssg bg-danger">
@@ -61,7 +89,7 @@
 				</div>
 				<div id="LangTable"><a href="/profile" id="aa"></a>
 				</div>
-				<div><span>Login?</span><a href="/login">Click here</a></div>
+				<div><span style="color: white;" class="loginhere">Login? </span><a href="/login" class="loginhere-link">Click here</a></div>
 			</div>
 			<div id="LangTable"><a href="/login" id="aa"></a>
 			</div>

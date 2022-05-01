@@ -2,12 +2,16 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 
+router.get('/register', function (req, res, next) {
+	return res.render('register.ejs');
+});
+
 router.get('/', function (req, res, next) {
+	console.log("test");
 	return res.render('index.ejs');
 });
 
-
-router.post('/', function(req, res, next) {
+router.post('/register', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
 
