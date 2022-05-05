@@ -16,7 +16,7 @@ async function run() {
 
         // define pipeline
         const agg = [
-            {$search: {search_restaurant_autocomplete: {query: "piz", path: "name"}}},
+            {$search: {search_restaurant_autocomplete: {query: "pizza", path: "name"}}},
             {$limit: 20 },
             {$project: { name : 1 }}
         ];
