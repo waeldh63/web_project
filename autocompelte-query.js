@@ -4,7 +4,7 @@ const { MongoClient } = require("mongodb");
 const uri =
     "mongodb+srv://User:user12345@cluster0.fywre.mongodb.net/chunk?retryWrites=true&w=majority";
 
-const client = new MongoClient(uri);
+const client = new MongoClient(uri, { useUnifiedTopology: true});
 
 async function run() {
     try {
@@ -16,9 +16,9 @@ async function run() {
 
         // define pipeline
         const agg = [
-            {$search: {autocomplete: {query: "piz", path: "name"}}},
-            {$limit: 20},
-            {$project: {_id: 0,name: 1}}
+            {$search: {search_restaurant_autocomplete: {query: "piz", path: "name"}}},
+            {$limit: 20 },
+            {$project: { name : 1 }}
         ];
         // run pipeline
         const result = await coll.aggregate(agg);
