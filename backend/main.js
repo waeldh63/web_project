@@ -33,10 +33,11 @@ server.get("/search", async (request, response) => {
     }
 })
 
-server.listen("3000", async () => {
+server.listen("3001", async () => {
     try {
         await client.connect();
         collection = client.db("chunk").collection("recipes");
+        console.log('Server is started ');
     } catch (e) {
         console.error(e);
     }

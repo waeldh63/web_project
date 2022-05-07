@@ -4,6 +4,18 @@
 	<title> Chunk | Food Delivery </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+
+
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/style.css">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -15,6 +27,25 @@
 </head>
 
 <body>
+
+	<script>
+		$(document).ready(function() {
+			$("#recipe").autocomplete({
+				source: async function(request, response) {
+					let data = await fetch(`http://localhost:3001/search?term=${request.term}`)
+						.then(results => results.json())
+						.then(results => results.map(result => {
+							return { label: result.name, value: result.name, id: result._id };
+						}));
+						response(data);
+				},
+				minLength: 2,
+				select: function(event, ui) {
+					console.log(ui.item);
+				}
+			});
+		});
+	</script>
 	<div class="header-area ">
 		  <div class="navbar-area">
 		      <nav class="site-navbar">
@@ -77,8 +108,9 @@
 						<div class="col-lg-8 d-flex align-items-center input-block">
 							<div class="form-group">
 								<label><i class="fas fa-search mt-1"></i></label>
-								<input type="text" name="" class="form-control" placeholder="Search for a restaurant, cuisine or a dish">
+								<input type="text" name="" class="form-control" id="recipe" placeholder="Search for a restaurant, cuisine or a dish">
 							</div>
+
 						</div>
 						<div class="btn">
 							<a href="" style="font-family: 'Roboto';">Search food places</a>
@@ -270,7 +302,6 @@
     	</div>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/5118cb3e8d.js" crossorigin="anonymous"></script>
 <script src="./js/food.js"></script>
