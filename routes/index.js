@@ -5,6 +5,10 @@ var User = require('../models/user');
 router.get('/register', function (req, res, next) {
 	return res.render('register.ejs');
 });
+router.get('/browsefood', function (req, res, next) {
+	return res.render('browsefood.ejs');
+});
+
 
 router.get('/', function (req, res, next) {
 	console.log("test");

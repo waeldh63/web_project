@@ -326,5 +326,29 @@ $('#download').click(function(){
 		<div class="copyright"><p>Chunk Platform <i class="far fa-copyright"></i> Web multimedia technologies. 2022</p></div>
 	</div>
 </footer>
+<div id="map" style="height: 500px; width:500px;"></div>
+<script>
+// Initialize and add the map
+function initMap() {
+  // The location of beirut
+  const beirut = { lat: 33.8938, lng: 35.5018 };
+  // The map, centered at beirut
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: beirut,
+  });
+  // The marker, positioned at beirut
+  const marker = new google.maps.Marker({
+    position: beirut,
+    map: map,
+  });
+}
 
+window.initMap = initMap;
+</script>
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsaC6fp3jxTungvaWAvObJHhwkzOgLRS8&callback=initMap&v=weekly"
+defer
+></script>
 </html>

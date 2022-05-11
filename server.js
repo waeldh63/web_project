@@ -32,7 +32,9 @@ app.use(session({
     mongooseConnection: db
   })
 }));
-
+app.get('/map',function(req,res){
+  res.sendFile(path.join(__dirname+'/map.js'));
+});
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');	
 
