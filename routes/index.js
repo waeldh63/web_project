@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var recipe = require('../models/recipe');
 
 router.get('/register', function (req, res, next) {
 	return res.render('register.ejs');
@@ -69,6 +70,25 @@ router.get('/login', function (req, res, next) {
 	return res.render('login.ejs');
 });
 
+
+
+
+router.get('/map', function (req, res, next) {
+	console.log("map");
+	
+	recipe.find({}, { projection: { name: 0} },function(err,data){
+		console.log("data");
+		//console.log(data);
+		
+		console.log(data[1].lat);
+		return res.render('index.ejs', {"namee":data[1].lat});
+		
+		
+	});
+	
+
+	
+});
 router.post('/login', function (req, res, next) {
 	//console.log(req.body);
 	User.findOne({email:req.body.email},function(err,data){
@@ -88,6 +108,30 @@ router.post('/login', function (req, res, next) {
 		}
 	});
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get('/profile', function (req, res, next) {
 	console.log("profile");

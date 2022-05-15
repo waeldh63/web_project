@@ -8,6 +8,10 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
+
+
+
+
 mongoose.connect('mongodb+srv://User:user12345@cluster0.fywre.mongodb.net/chunk?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -32,9 +36,7 @@ app.use(session({
     mongooseConnection: db
   })
 }));
-app.get('/map',function(req,res){
-  res.sendFile(path.join(__dirname+'/map.js'));
-});
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');	
 
@@ -64,4 +66,6 @@ app.use(function (err, req, res, next) {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
   console.log('Server is started on http://127.0.0.1:'+PORT);
+
 });
+
