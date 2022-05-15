@@ -337,39 +337,98 @@ $('#download').click(function(){
 	</div>
 </footer>
 
-
-
-
-
-
-
-
-
-
-
-
 <script>
-// Initialize and add the map
-function initMap() {
-  // The location of beirut
-  const beirut = { lat: 33.8938, lng: 35.5018 };
-  // The map, centered at beirut
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
-    center: beirut,
-  });
-  // The marker, positioned at beirut
-  const marker = new google.maps.Marker({
-    position: beirut,
-    map: map,
-  });
-}
+	// Initialize and add the map
+	function initMap() {
+	  // The location of beirut
+	  const beirut = { lat: 33.8938, lng: 35.5018 };
+	  var Le_Gourmet_Burger = { lat:  33.8942001, lng: 35.476063 };
+	  var La_Burgeria = { lat:  33.874487, lng: 35.514724 };
+	  var Burger_King = { lat:  33.8941998, lng: 35.5142679 };
+	  var Pizzeria_Del_Vico = { lat:  33.8860359, lng: 35.4694969 };
+	  var Pizza_Pizza = { lat:  33.8860346, lng: 35.498947 };
+	  var La_Pizzaria = { lat: 33.8948936, lng: 35.5156242 };
+	  var Pizza_Hut = { lat: 33.8948923, lng: 35.5003033 };
+	  var SteakBarSushi = { lat: 33.9199189, lng: 35.5882966 };
+	  var Mr_Steak = { lat: 33.8699256, lng: 35.5366443 };
+	  var Steak_Crush = { lat: 33.8948284, lng: 35.5097792 };
+	  
+	  // The map, centered at beirut	
+	  const map = new google.maps.Map(document.getElementById("map"), {	
+		zoom: 12,	
+		center: beirut,	
+	  });
+	
+	  // The marker, positioned at beirut
+	  const marker = new google.maps.Marker({
+		position: beirut,
+		map: map,
+		title:"Beirut"
+	  });
 
-window.initMap = initMap;
-</script>
+			const  marker1 = new google.maps.Marker({
+				position: Le_Gourmet_Burger,
+				map: map,
+				title:"Le Gourmet Burger"
+			});
 
-<script
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsaC6fp3jxTungvaWAvObJHhwkzOgLRS8&callback=initMap&v=weekly"
-defer
-></script>
+			const  marker2 = new google.maps.Marker({
+				position: La_Burgeria ,
+				map: map,
+				title:"La Burgeria"
+			});
+
+			const  marker3 = new google.maps.Marker({
+				position: Burger_King,
+				map: map,
+				title:"Burger King"
+			});
+
+			const  marker4 = new google.maps.Marker({
+				position: Pizzeria_Del_Vico,
+				map: map,
+				title:"Pizzeria Del Vico"
+			});
+
+			const  marker5 = new google.maps.Marker({
+				position: Pizza_Pizza,
+				map: map,
+				title:"Pizza Pizza"
+			});
+
+			const  marker6 = new google.maps.Marker({
+				position: La_Pizzaria,
+				map: map,
+				title:"La Pizzaria"
+			});
+
+			const  marker7 = new google.maps.Marker({
+				position: Pizza_Hut,
+				map: map,
+				title:"Pizza Hut"
+			});
+
+			const  marker8 = new google.maps.Marker({
+				position: SteakBarSushi,
+				map: map,
+				title:"SteakBarSushi"
+			});
+
+			const  marker9 = new google.maps.Marker({
+				position: Mr_Steak,
+				map: map,
+				title:"Mr. Steak"
+			});
+
+			const  marker10 = new google.maps.Marker({
+				position: Steak_Crush,
+				map: map,
+				title:"Steak Crush"
+			});
+	}  
+
+	window.initMap = initMap;	
+	</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsaC6fp3jxTungvaWAvObJHhwkzOgLRS8&callback=initMap&v=weekly"defer></script>
 </html>
