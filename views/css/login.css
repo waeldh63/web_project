@@ -76,7 +76,6 @@ display-flex, .display-flex, .display-flex-center {
     margin: 0;
     padding: 0;
     font-weight: 900;
-    font-family: 'Roboto';
     font-size: 24px;
     text-transform: uppercase;
     text-align: center;
@@ -89,7 +88,6 @@ display-flex, .display-flex, .display-flex-center {
     font-size: 14px;
     line-height: 1.8;
     color: #222;
-    font-family: 'Roboto';
     font-weight: 400;
     background-image: url("../image/signup-bg.jpg");
     background-repeat: no-repeat;
@@ -148,6 +146,7 @@ display-flex, .display-flex, .display-flex-center {
   .signup-content {
     background: #2d2d2df0;
     border-radius: 10px;
+    margin: auto;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     -o-border-radius: 10px;

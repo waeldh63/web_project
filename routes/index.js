@@ -13,7 +13,7 @@ router.get('/browsefood', function (req, res, next) {
 
 router.get('/', function (req, res, next) {
 	console.log("test");
-	return res.render('index.ejs');
+	return res.render('new_index.ejs');
 });
 
 router.post('/register', function(req, res, next) {
