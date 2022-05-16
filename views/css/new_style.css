@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid #fc2547;
 }
 .back-to-top i {
-  font-size: 28px;
+  font-size: 20px;
   color: #fc2547;
   line-height: 0;
 }
@@ -503,7 +503,7 @@ section {
 # About us
 --------------------------------------------------------------*/
 .about {
-  background: url("../img/about-bg.jpg") center center;
+  background: url("../image/about-bg.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 80px 0;
