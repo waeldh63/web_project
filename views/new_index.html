@@ -8,6 +8,14 @@
   <title>Chunk</title>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> </script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -26,7 +34,37 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	
 </head>
+<script>
+  $(document).ready(function() {
 
+$('#download').click(function(){
+
+
+$('html, body').animate({
+      scrollTop: $("#footer").offset().top
+  }, 800);
+
+
+
+});
+
+
+    $(".auto_com").autocomplete({
+      source: async function(request, response) {
+        let data = await fetch(`http://localhost:3001/search?term=${request.term}`)
+          .then(results => results.json())
+          .then(results => results.map(result => {
+            return { label: result.name, value: result.name, id: result._id };
+          }));
+          response(data);
+      },
+      minLength: 2,
+      select: function(event, ui) {
+        console.log(ui.item);
+      }
+    });
+  });
+</script>
 <body>
 
   <!-- ======= Header ======= -->
@@ -69,7 +107,7 @@
                   <div class="hero-search">
                     <form action="" method="post">
                       <label><i class="fas fa-search mt-1"></i></label>
-                      <input type="text" name="text" placeholder="Search for a restaurant, cuisine or a dish"><input type="submit" value="Search">
+                      <input type="text" name="text" placeholder="Search for a restaurant, cuisine or a dish"class="auto_com"><input type="submit" value="Search">
                     </form>
                   </div>
                 </div>
@@ -88,7 +126,7 @@
                   <div class="hero-search">
                     <form action="" method="post">
                       <label><i class="fas fa-search mt-1"></i></label>
-                      <input type="text" name="text" placeholder="Search for a restaurant, cuisine or a dish"><input type="submit" value="Search">
+                      <input type="text" name="text" placeholder="Search for a restaurant, cuisine or a dish" class="auto_com"><input type="submit" value="Search">
                     </form>
                   </div>
                 </div>
@@ -106,7 +144,7 @@
                   <div class="hero-search">
                     <form action="" method="post">
                       <label><i class="fas fa-search mt-1"></i></label>
-                      <input type="text" name="text" placeholder="Search for a restaurant, cuisine or a dish"><input type="submit" value="Search">
+                      <input type="text" name="text" placeholder="Search for a restaurant, cuisine or a dish" class="auto_com"><input type="submit" value="Search">
                     </form>
                   </div>
                 </div>
