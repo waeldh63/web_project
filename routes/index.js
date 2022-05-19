@@ -24,18 +24,25 @@ router.get('/italian', function (req, res, next) {
 	client.connect();
 	collection = client.db("chunk").collection("recipes");
 	console.log('Server is started test222 ');
-	var arr2 = [];
+	var restoname = [];
+	var address = [];
+	var description = [];
+	var image = [];
 
 collection.find({ "cuisine": "Italian" }).toArray().then((ans) => {
 					for(i=0;i<ans.length;i++){
 							//console.log(ans[i].name);
 							console.log("test2");
-							arr2[i]=ans[i].name;
-							console.log(arr2[i]);
+							restoname[i]=ans[i].name;
+							address[i]=ans[i].address;
+							description[i]=ans[i].description;
+							image[i]=ans[i].image;
+							console.log(description[i]);
+
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
-				return res.render('italian.ejs', {name:arr2});
+				return res.render('italian.ejs', {restoname:restoname,address:address,description:description,image:image});
 });
 	//var name = 'hello';	
 	

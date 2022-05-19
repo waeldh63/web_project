@@ -31,33 +31,58 @@
 
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	</head>
-	<script>
-		$(document).ready(function() {
 
-
-
-
-
-
-
-				$('#download').click(function(){
-
-
-					$('html, body').animate({
-						scrollTop: $("#footer").offset().top
-					}, 800);
-
-
-
-				});
-
-
-			
-		});
-	</script>
 <body>
 
+	<script>
+		$(document).ready(function() {
 	
+			
+			$('#italian').click(function(){
+
+$('#cuisine').hide();
+$( "#main" ).append( '<div id="cuisine_italy"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu1.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
+
+
+
+});
+			
+$('#american').click(function(){
+
+$('#cuisine_italy').hide();
+$( "#main" ).append( '<div id="cuisine_american"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu2.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
+
+
+
+});
+$('#download').click(function(){
+
+
+	$('html, body').animate({
+        scrollTop: $("#footer").offset().top
+    }, 800);
+
+
+
+});
+
+
+			$("#recipe").autocomplete({
+				source: async function(request, response) {
+					let data = await fetch(`http://localhost:3001/search?term=${request.term}`)
+						.then(results => results.json())
+						.then(results => results.map(result => {
+							return { label: result.name, value: result.name, id: result._id };
+						}));
+						response(data);
+				},
+				minLength: 2,
+				select: function(event, ui) {
+					console.log(ui.item);
+				}
+			});
+		});
+	</script>
 	
 	  <!-- ======= Header ======= -->
 	  <header id="header" class="fixed-top d-flex align-items-cente">
@@ -70,7 +95,7 @@
 			  <li><a class="nav-link scrollto" href="#about">About us</a></li>
 			  <li><a class="nav-link scrollto" href="#browse-food">Browse </a></li>
 			  <li><a class="nav-link scrollto" href="#contact">Contact us</a></li>
-			  <li><a class="nav-link scrollto" id="download">Download app</a></li>
+			  <li><a class="nav-link scrollto" href="#download">Download app</a></li>
 	
 			</ul>
 			<i class="bi bi-list mobile-nav-toggle"></i>
@@ -82,10 +107,12 @@
 		<br><br><br><br>
 
 
-	<div class="container packages">
+	<div class="container packages ">
 		<div class="title mb-5">
 			<h1>Browse by Category</h1>
+			
 		</div>
+		
 		<div class="row">
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="italian">
 				<div class="card rounded-circle w-100 h-100  ">
@@ -108,11 +135,8 @@
 					
 				</div>
 				<div style="padding: 5px;">
-						<h4 id="test" class="card-title"style="text-align:center;">Salad 
-							
-						</h4>
+						<h4 class="card-title"style="text-align:center;">Lebanese</h4>
 					  </div>
-				
 			</div>
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
 				<div class="card rounded-circle w-100 h-100  ">
@@ -136,37 +160,10 @@
 					
 				</div>
 				<div style="padding: 5px;">
-						<h4 class="card-title"style="text-align:center;">Barbeque</h4>
+						<h4 class="card-title"style="text-align:center;">Mexican</h4>
 					  </div>
 			</div>
-				<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
-				<div class="card rounded-circle w-100 h-100  ">
-					
-					<img src="./image/menu5.jpg" class="   w-100 h-100 rounded-circle" >
-					
-				  
-					
-				</div>
-				<div style="padding: 5px;">
-						<h4 class="card-title"style="text-align:center;">Soup
-						
-							<% for(var i = 0; i< name.length; i++) %>
-								<tr>
-								  <th scope="row"></th>
-								  <td><%= name%></td>
-								 
-								</tr>
-								
-							  </tbody>
-						
-						
-						
-						
-						
-						
-						</h4>
-					  </div>
-			</div>
+			
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
 				<div class="card rounded-circle w-100 h-100  ">
 					
@@ -187,7 +184,7 @@
 		
 		<div class="title mb-5 mt-5">
 			<br>
-			<h1>Available Restaurants</h1>
+			<h1 class="mt-5"><span>Our Restaurants</span></h1>
 
 		</div>
 		<ul class="nav justify-content-center">
@@ -202,8 +199,34 @@
   </li>
  
 </ul>
+
+
+			<div class="row" >
+				
+
+				<% for(var i = 0; i< restoname.length; i++){ %>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+					<div class="card" >
+						<div class="img-holder">
+							<img src="./image/burgerking.jpg" class="card-img-top" >
+						</div>
+					
+					<div class="card-body">
+						<h4 class="card-title"><%= restoname[i] %></h4>
+						<h6 class="card-text"><%= description[i] %></h6>
+						<p class="card-text" style="color: rgb(105, 105, 105);"> <%= address[i] %></p>
+					</div>
+					</div>
+				</div><% } %>
+
+
+				
+				
+			</div>
+</div>
+	
 		
-	</div>
+	
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
