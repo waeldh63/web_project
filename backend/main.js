@@ -45,7 +45,7 @@ server.listen("3001", async () => {
   // Fetching the records 
         
 
-  router.post('/italian', function (req, res, next) {
+  router.get('/italian', function (req, res, next) {
 	console.log("italian");
     collection.find({ "cuisine": "Italian" }).toArray().then((ans) => {
         for(i=0;i<ans.length;i++){

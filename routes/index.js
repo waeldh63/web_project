@@ -10,7 +10,9 @@ router.get('/register', function (req, res, next) {
 router.get('/browsefood', function (req, res, next) {
 	return res.render('browsefood.ejs');
 });
-
+router.get('/italian', function (req, res, next) {
+	return res.render('italian.ejs');
+});
 
 router.get('/', function (req, res, next) {
 	console.log("test");
@@ -109,27 +111,6 @@ router.post('/login', function (req, res, next) {
 		}
 	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
