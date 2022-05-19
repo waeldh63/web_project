@@ -8,7 +8,10 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> </script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/style.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
 
 
   <!-- Google Fonts -->
@@ -33,7 +36,25 @@
 
 	<script>
 		$(document).ready(function() {
+	
+			
+			$('#italian').click(function(){
 
+$('#cuisine').hide();
+$( "#main" ).append( '<div id="cuisine_italy"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu1.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
+
+
+
+});
+			
+$('#american').click(function(){
+
+$('#cuisine_italy').hide();
+$( "#main" ).append( '<div id="cuisine_american"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu2.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
+
+
+
+});
 $('#download').click(function(){
 
 
@@ -92,7 +113,7 @@ $('#download').click(function(){
 		</div>
 
 		<div class="row">
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
+			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="italian">
 				<div class="card rounded-circle w-100 h-100  ">
 					
 					<img src="./image/menu1.jpg" class="   w-100 h-100 rounded-circle" >
@@ -101,10 +122,10 @@ $('#download').click(function(){
 					
 				</div>
 				<div style="padding: 5px;">
-						<h4 class="card-title"style="text-align:center;">Pizza</h4>
+						<h4 class="card-title"style="text-align:center;">Italian</h4>
 					  </div>
 			</div>
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
+			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="american">
 				<div class="card rounded-circle w-100 h-100  ">
 					
 					<img src="./image/menu2.jpg" class="   w-100 h-100 rounded-circle" >
@@ -162,7 +183,7 @@ $('#download').click(function(){
 					
 				</div>
 				<div style="padding: 5px;">
-						<h4 class="card-title"style="text-align:center;">Burger</h4>
+						<h4 class="card-title"style="text-align:center;">American</h4>
 					  </div>
 			</div>
 
@@ -188,77 +209,84 @@ $('#download').click(function(){
   </li>
  
 </ul>
-        <div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-			  <div class="card" >
-				<div class="img-holder">
-				  <img src="image/menu1.jpg" class="card-img-top" >
-				</div>
-				
-				<div class="card-body">
-				  <h4 class="card-title">Al Forno! Straight Outta Italy</h4>
-				  <p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p>
-				</div>
-			  </div>
+<div id='main'>
+	<div id="cuisine">
+
+<div class="row" >
+	
+	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+		<div class="card" >
+			<div class="img-holder">
+				<img src="./image/menu1.jpg" class="card-img-top" >
 			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-			  <div class="card" >
-				<div class="img-holder">
-				  <img src="image/menu2.jpg" class="card-img-top" >
-				</div>
-				<div class="card-body">
-				  <h4 class="card-title">The Salad Story</h4>
-				  <p class="card-text" style="color: rgb(105, 105, 105);"> Cafe, Healthy Food, Salad, Fast Food...</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-			  <div class="card" >
-				<div class="img-holder">
-				  <img src="image/menu3.jpg" class="card-img-top" >
-				</div>
-				<div class="card-body">
-				  <h4 class="card-title">The Irish House</h4>
-				  <p class="card-text" style="color: rgb(105, 105, 105);"> European, American, Fast Food</p>
-				</div>
-			  </div>
-			</div>
-	  
-			<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-			  <div class="card" >
-				<div class="img-holder">
-				  <img src="image/menu4.jpg" class="card-img-top" >
-				</div>
-				
-				<div class="card-body">
-				  <h4 class="card-title">UBQ by Barbeque Nation</h4>
-				  <p class="card-text" style="color: rgb(105, 105, 105);"> North Indian, BBQ, Biryani, Shake</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-			  <div class="card" >
-				<div class="img-holder">
-				  <img src="image/menu5.jpg" class="card-img-top" >
-				</div>
-				<div class="card-body">
-				  <h4 class="card-title">Dimsum & Co.</h4>
-				  <p class="card-text" style="color: rgb(105, 105, 105);"> Chinese, Thai, Malaysian, Japanese...</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-			  <div class="card" >
-				<div class="img-holder">
-				  <img src="image/menu6.jpg" class="card-img-top" >
-				</div>
-				<div class="card-body">
-				  <h4 class="card-title">The burger company</h4>
-				  <p class="card-text" style="color: rgb(105, 105, 105);"> Burger, Fast Food, Beverages, Shake</p>
-				</div>
-			  </div>
-			</div>
+		  
+		  <div class="card-body">
+			<h4 class="card-title">Al Forno! Straight Outta Italy</h4>
+			<p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p>
 		  </div>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+		<div class="card" >
+		  <div class="img-holder">
+				<img src="./image/menu2.jpg" class="card-img-top" >
+			</div>
+		  <div class="card-body">
+			<h4 class="card-title">The Salad Story</h4>
+			<p class="card-text" style="color: rgb(105, 105, 105);"> Cafe, Healthy Food, Salad, Fast Food...</p>
+		  </div>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+		<div class="card" >
+		  <div class="img-holder">
+				<img src="./image/menu3.jpg" class="card-img-top" >
+			</div>
+		  <div class="card-body">
+			<h4 class="card-title">The Irish House</h4>
+			<p class="card-text" style="color: rgb(105, 105, 105);"> European, American, Fast Food</p>
+		  </div>
+		</div>
+	</div>
+
+	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+		<div class="card" >
+			<div class="img-holder">
+				<img src="./image/menu4.jpg" class="card-img-top" >
+			</div>
+		  
+		  <div class="card-body">
+			<h4 class="card-title">UBQ by Barbeque Nation</h4>
+			<p class="card-text" style="color: rgb(105, 105, 105);"> North Indian, BBQ, Biryani, Shake</p>
+		  </div>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+		<div class="card" >
+		  <div class="img-holder">
+				<img src="./image/menu5.jpg" class="card-img-top" >
+			</div>
+		  <div class="card-body">
+			<h4 class="card-title">Dimsum & Co.</h4>
+			<p class="card-text" style="color: rgb(105, 105, 105);"> Chinese, Thai, Malaysian, Japanese...</p>
+		  </div>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+		<div class="card" >
+		  <div class="img-holder">
+				<img src="./image/menu6.jpg" class="card-img-top" >
+			</div>
+		  <div class="card-body">
+			<h4 class="card-title">The burger company</h4>
+			<p class="card-text" style="color: rgb(105, 105, 105);"> Burger, Fast Food, Beverages, Shake</p>
+		  </div>
+		</div>
+	</div>
+
+</div>
+</div>
+	</div>
 		
 	</div>
 
