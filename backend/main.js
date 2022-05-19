@@ -12,11 +12,6 @@ server.use(Cors());
 
 var collection;
 
-
-
-
-
-
 server.get("/search", async (request, response) => {
     try {
         let result = await collection.aggregate([
@@ -45,8 +40,30 @@ server.listen("3001", async () => {
         collection = client.db("chunk").collection("recipes");
         console.log('Server is started ');
       
+  // Fetching the records 
+        
+  collection.find({ "cuisine": "Italian" }).toArray().then((ans) => {
+    //console.log(ans);
+    });
+
+    collection.find({ "cuisine": "Mexican" }).toArray().then((ans) => {
+        //console.log(ans);
+    });
+
+    collection.find({ "cuisine": "American" }).toArray().then((ans) => {
+        //console.log(ans);
+    });
+
+    collection.find({ "cuisine": "Irish" }).toArray().then((ans) => {
+        //console.log(ans);
+    });
+
+    collection.find({ "cuisine": "Lebanese" }).toArray().then((ans) => {
+        //console.log(ans);
+    });
 
     } catch (e) {
         console.error(e);
     }
+
 });

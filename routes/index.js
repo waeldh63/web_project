@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-var recipe = require('../models/recipe');
+
+var Recipe = require('../models/recipe');
 
 router.get('/register', function (req, res, next) {
 	return res.render('register.ejs');
