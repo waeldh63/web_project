@@ -31,7 +31,30 @@
 
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	</head>
+	<script>
+		$(document).ready(function() {
 
+
+
+
+
+
+
+				$('#download').click(function(){
+
+
+					$('html, body').animate({
+						scrollTop: $("#footer").offset().top
+					}, 800);
+
+
+
+				});
+
+
+			
+		});
+	</script>
 <body>
 
 	
@@ -47,7 +70,7 @@
 			  <li><a class="nav-link scrollto" href="#about">About us</a></li>
 			  <li><a class="nav-link scrollto" href="#browse-food">Browse </a></li>
 			  <li><a class="nav-link scrollto" href="#contact">Contact us</a></li>
-			  <li><a class="nav-link scrollto" href="#download">Download app</a></li>
+			  <li><a class="nav-link scrollto" id="download">Download app</a></li>
 	
 			</ul>
 			<i class="bi bi-list mobile-nav-toggle"></i>
@@ -85,8 +108,8 @@
 					
 				</div>
 				<div style="padding: 5px;">
-						<h4 class="card-title"style="text-align:center;">Salad 
-							<%= name %>
+						<h4 id="test" class="card-title"style="text-align:center;">Salad 
+							
 						</h4>
 					  </div>
 				
@@ -125,7 +148,27 @@
 					
 				</div>
 				<div style="padding: 5px;">
-						<h4 class="card-title"style="text-align:center;">Soup</h4>
+						<h4 class="card-title"style="text-align:center;">Soup
+						
+							<% if(name.length){ for(var i = 0; i< name.length; i++) {%>
+								<tr>
+								  <th scope="row"></th>
+								  <td><%= name%></td>
+								 
+								</tr>
+								<% } }else{ %>
+								<tr>
+								  <td colspan="3">User not found</td>
+								</tr>
+								<% } %>
+							  </tbody>
+						
+						
+						
+						
+						
+						
+						</h4>
 					  </div>
 			</div>
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
