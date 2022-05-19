@@ -3,15 +3,33 @@ var router = express.Router();
 var User = require('../models/user');
 
 var Recipe = require('../models/recipe');
+const { MongoClient } = require("mongodb");
+
+const client = new MongoClient("mongodb+srv://User:user12345@cluster0.fywre.mongodb.net/chunk?retryWrites=true&w=majority");
+var collection;
+
 
 router.get('/register', function (req, res, next) {
+
 	return res.render('register.ejs');
 });
 router.get('/browsefood', function (req, res, next) {
 	return res.render('browsefood.ejs');
 });
 router.get('/italian', function (req, res, next) {
-	return res.render('italian.ejs');
+	client.connect();
+	collection = client.db("chunk").collection("recipes");
+	console.log('Server is started test222 ');
+	collection.find({ "cuisine": "Italian" }).toArray().then((ans) => {
+		for(i=0;i<ans.length;i++){
+				console.log(ans[i].name);
+				console.log("test2");
+				//render ('italian.ejs', {"name":ans[i].name});
+	return res.render('italian.ejs', {name:ans[i].name});
+}
+});
+	//var name = 'hello';
+	
 });
 
 router.get('/', function (req, res, next) {
