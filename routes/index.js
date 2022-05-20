@@ -7,6 +7,8 @@ const { MongoClient } = require("mongodb");
 
 const client = new MongoClient("mongodb+srv://User:user12345@cluster0.fywre.mongodb.net/chunk?retryWrites=true&w=majority");
 var italian;
+var mexican;
+
 
 
 router.get('/register', function (req, res, next) {
@@ -31,11 +33,17 @@ router.get('/italian', function (req, res, next) {
 	
 	client.connect();
 	italian = client.db("chunk").collection("recipes");
+	mexican = client.db("chunk").collection("recipes");
 	console.log('Server is started test222 ');
 	var restoname = [];
 	var address = [];
 	var description = [];
 	var image = [];
+	var mexiname= [];
+	var mexiaddress = [];
+	var mexidescription = [];
+	var meximage = [];
+
 
 	italian.find({ "cuisine": "Italian" }).toArray().then((ans) => {
 					for(i=0;i<ans.length;i++){
@@ -50,11 +58,19 @@ router.get('/italian', function (req, res, next) {
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
-				return res.render('italian.ejs', {restoname:restoname,address:address,description:description,image:image});
+
+return res.render('italian.ejs', {restoname:restoname,address:address,description:description,image:image});
+				
 });
-	//var name = 'hello';	
+
 	
 });
+
+
+
+
+
+
 
 router.get('/', function (req, res, next) {
 	console.log("test");
