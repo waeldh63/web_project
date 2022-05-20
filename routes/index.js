@@ -16,6 +16,14 @@ router.get('/register', function (req, res, next) {
 router.get('/browsefood', function (req, res, next) {
 	return res.render('browsefood.ejs');
 });
+
+
+
+
+
+
+
+
 router.get('/italian', function (req, res, next) {
 
 
