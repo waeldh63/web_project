@@ -37,24 +37,8 @@
 	<script>
 		$(document).ready(function() {
 	
-			
-			$('#italian').click(function(){
+	
 
-$('#cuisine').hide();
-$( "#main" ).append( '<div id="cuisine_italy"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu1.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
-
-
-
-});
-			
-$('#american').click(function(){
-
-$('#cuisine_italy').hide();
-$( "#main" ).append( '<div id="cuisine_american"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu2.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
-
-
-
-});
 $('#download').click(function(){
 
 
@@ -208,8 +192,9 @@ $('#download').click(function(){
 				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
 					<div class="card" >
 						<div class="img-holder">
-							<img src="./image/burgerking.jpg" class="card-img-top" >
+							<img src="<%= image[i] %>" class="card-img-top" >
 						</div>
+				
 					
 					<div class="card-body">
 						<h4 class="card-title"><%= restoname[i] %></h4>

@@ -6,7 +6,7 @@ var Recipe = require('../models/recipe');
 const { MongoClient } = require("mongodb");
 
 const client = new MongoClient("mongodb+srv://User:user12345@cluster0.fywre.mongodb.net/chunk?retryWrites=true&w=majority");
-var collection;
+var italian;
 
 
 router.get('/register', function (req, res, next) {
@@ -22,14 +22,14 @@ router.get('/italian', function (req, res, next) {
 
 	
 	client.connect();
-	collection = client.db("chunk").collection("recipes");
+	italian = client.db("chunk").collection("recipes");
 	console.log('Server is started test222 ');
 	var restoname = [];
 	var address = [];
 	var description = [];
 	var image = [];
 
-collection.find({ "cuisine": "Italian" }).toArray().then((ans) => {
+	italian.find({ "cuisine": "Italian" }).toArray().then((ans) => {
 					for(i=0;i<ans.length;i++){
 							//console.log(ans[i].name);
 							console.log("test2");
