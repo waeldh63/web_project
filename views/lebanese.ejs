@@ -37,8 +37,32 @@
 	<script>
 		$(document).ready(function() {
 	
-	
+			$('#low').click(function(){
 
+				$('#none').fadeOut();
+
+				$('#hightolow').fadeOut();
+				$('#lowtohigh').fadeIn();
+
+});
+	
+			$('#hight').click(function(){
+
+				$('#none').fadeOut();
+
+				$('#hightolow').fadeIn();
+				$('#lowtohigh').fadeOut();
+
+});
+
+				$('#no').click(function(){
+
+				$('#none').fadeIn();
+
+				$('#hightolow').fadeOut();
+				$('#lowtohigh').fadeOut();
+
+				});
 $('#download').click(function(){
 
 
@@ -164,27 +188,33 @@ $('#download').click(function(){
 		</div>
 
 
+
 		
 		<div class="title mb-5 mt-5">
 			<br>
 			<h1 class="mt-5"><span>Our Restaurants</span></h1>
 
 		</div>
-		<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">A => Z</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">low => high</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">high => low</a>
-  </li>
+		<ul class="nav justify-content-center mb-5">
  
+  <li class="nav-item " id="low">
+	<div class="join-now-btn scrollto d-none d-lg-flex ">low => high</div>
+ 
+  </li>
+  <li class="nav-item" id="hight">
+	<div class="join-now-btn scrollto d-none d-lg-flex">high => low</div>
+	
+    
+  </li>
+  <li class="nav-item" id="no">
+	<div class="join-now-btn scrollto d-none d-lg-flex">NO SORTING</div>
+	
+    
+  </li>
 </ul>
 
 
-			<div class="row" >
+			<div class="row"  id="none">
 				
 
 				<% for(var i = 0; i< restoname.length; i++){ %>
@@ -200,6 +230,7 @@ $('#download').click(function(){
 						<h6 class="card-text"><%= description[i] %></h6>
 						<p class="card-text" style="color: rgb(105, 105, 105);"> <%= address[i] %></p>
 						<p class="card-text" style="color: rgb(225, 22, 22);"> cost per person <%= cost[i] %></p>
+
 					</div>
 					</div>
 				</div><% } %>
@@ -208,7 +239,124 @@ $('#download').click(function(){
 				
 				
 			</div>
+			
+
+			<div class="row"  id="hightolow" style="display: none;">
+				<% var co = []; %>
+				<% var na = []; %>
+				<% var aa = []; %>
+				<% var im = []; %>
+				<% var de = []; %>
+				<% for(var i = 0; i< restoname.length; i++){ %>
+
+					<% for(var j = i+1; j< restoname.length; j++){ %>
+						<% if( cost[j] > cost[i]){
+							co[1] = cost[i];
+							cost[i] = cost[j];
+							cost[j]=co[1];
+
+							na[1] = restoname[i];
+							restoname[i] = restoname[j];
+							restoname[j]=na[1];
+
+							im[1] = image[i];
+							image[i] = image[j];
+							image[j]=im[1];
+
+							de[1] = description[i];
+							description[i] = description[j];
+							description[j]=de[1];
+
+							aa[1] = address[i];
+							address[i] = address[j];
+							address[j]=aa[1];
+						} %>
+
+						<% } %>
+
+						<% } %>
 		
+				<% for(var i = 0; i< restoname.length; i++){ %>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+					<div class="card" >
+						<div class="img-holder">
+							<img src="<%= image[i] %>" class="card-img-top" >
+						</div>
+				
+					
+					<div class="card-body">
+						<h4 class="card-title"><%= restoname[i] %></h4>
+						<h6 class="card-text"><%= description[i] %></h6>
+						<p class="card-text" style="color: rgb(105, 105, 105);"> <%= address[i] %></p>
+						<p class="card-text" style="color: rgb(225, 22, 22);"> cost per person <%= cost[i] %></p>
+
+					</div>
+					</div>
+				</div><% } %>
+
+
+				
+				
+			</div>
+			
+		
+			<div class="row"  id="lowtohigh" style="display: none;">
+				<% var co = []; %>
+				<% var na = []; %>
+				<% var aa = []; %>
+				<% var im = []; %>
+				<% var de = []; %>
+				<% for(var i = 0; i< restoname.length; i++){ %>
+
+					<% for(var j = i+1; j< restoname.length; j++){ %>
+						<% if( cost[j] > cost[i]){
+							co[1] = cost[i];
+							cost[i] = cost[j];
+							cost[j]=co[1];
+
+							na[1] = restoname[i];
+							restoname[i] = restoname[j];
+							restoname[j]=na[1];
+
+							im[1] = image[i];
+							image[i] = image[j];
+							image[j]=im[1];
+
+							de[1] = description[i];
+							description[i] = description[j];
+							description[j]=de[1];
+
+							aa[1] = address[i];
+							address[i] = address[j];
+							address[j]=aa[1];
+						} %>
+
+						<% } %>
+
+						<% } %>
+		
+				<% for(var i = restoname.length-1; i>= 0; i--){ %>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+					<div class="card" >
+						<div class="img-holder">
+							<img src="<%= image[i] %>" class="card-img-top" >
+						</div>
+				
+					
+					<div class="card-body">
+						<h4 class="card-title"><%= restoname[i] %></h4>
+						<h6 class="card-text"><%= description[i] %></h6>
+						<p class="card-text" style="color: rgb(105, 105, 105);"> <%= address[i] %></p>
+						<p class="card-text" style="color: rgb(225, 22, 22);"> cost per person <%= cost[i] %></p>
+
+					</div>
+					</div>
+				</div><% } %>
+
+
+				
+				
+			</div>
 </div>
 	
 		
