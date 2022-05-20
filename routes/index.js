@@ -40,7 +40,7 @@ router.get('/irish', function (req, res, next) {
 	var address = [];
 	var description = [];
 	var image = [];
-	
+	var cost = [];
 
 
 	irish.find({ "cuisine": "Irish" }).toArray().then((ans) => {
@@ -52,12 +52,12 @@ router.get('/irish', function (req, res, next) {
 							description[i]=ans[i].description;
 							image[i]=ans[i].image;
 							console.log(description[i]);
-
+							cost[i]=ans[i].cost;
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
 
-return res.render('irish.ejs', {restoname:restoname,address:address,description:description,image:image});
+return res.render('irish.ejs', {restoname:restoname,address:address,description:description,image:image,cost:cost});
 				
 });
 
@@ -83,7 +83,7 @@ router.get('/american', function (req, res, next) {
 	var address = [];
 	var description = [];
 	var image = [];
-	
+	var cost = [];
 
 
 	american.find({ "cuisine": "American" }).toArray().then((ans) => {
@@ -95,12 +95,12 @@ router.get('/american', function (req, res, next) {
 							description[i]=ans[i].description;
 							image[i]=ans[i].image;
 							console.log(description[i]);
-
+							cost[i]=ans[i].cost;
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
 
-return res.render('american.ejs', {restoname:restoname,address:address,description:description,image:image});
+return res.render('american.ejs', {restoname:restoname,address:address,description:description,image:image,cost:cost});
 				
 });
 
@@ -124,7 +124,7 @@ router.get('/lebanese', function (req, res, next) {
 	var address = [];
 	var description = [];
 	var image = [];
-	
+	var cost = [];
 
 
 	lebanese.find({ "cuisine": "Lebanese" }).toArray().then((ans) => {
@@ -136,12 +136,12 @@ router.get('/lebanese', function (req, res, next) {
 							description[i]=ans[i].description;
 							image[i]=ans[i].image;
 							console.log(description[i]);
-
+							cost[i]=ans[i].cost;
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
 
-return res.render('lebanese.ejs', {restoname:restoname,address:address,description:description,image:image});
+return res.render('lebanese.ejs', {restoname:restoname,address:address,description:description,image:image,cost:cost});
 				
 });
 
@@ -163,7 +163,7 @@ router.get('/mexican', function (req, res, next) {
 	var address = [];
 	var description = [];
 	var image = [];
-	
+	var cost = [];
 
 
 	mexican.find({ "cuisine": "Mexican" }).toArray().then((ans) => {
@@ -175,12 +175,13 @@ router.get('/mexican', function (req, res, next) {
 							description[i]=ans[i].description;
 							image[i]=ans[i].image;
 							console.log(description[i]);
+							cost[i]=ans[i].cost;
 
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
 
-return res.render('mexican.ejs', {restoname:restoname,address:address,description:description,image:image});
+return res.render('mexican.ejs', {restoname:restoname,address:address,description:description,image:image,cost:cost});
 				
 });
 
@@ -195,16 +196,14 @@ router.get('/italian', function (req, res, next) {
 	
 	client.connect();
 	italian = client.db("chunk").collection("recipes");
-	mexican = client.db("chunk").collection("recipes");
+	
 	console.log('Server is started test222 ');
 	var restoname = [];
 	var address = [];
 	var description = [];
 	var image = [];
-	var mexiname= [];
-	var mexiaddress = [];
-	var mexidescription = [];
-	var meximage = [];
+	var cost = [];
+	
 
 
 	italian.find({ "cuisine": "Italian" }).toArray().then((ans) => {
@@ -215,13 +214,14 @@ router.get('/italian', function (req, res, next) {
 							address[i]=ans[i].address;
 							description[i]=ans[i].description;
 							image[i]=ans[i].image;
+							cost[i]=ans[i].cost;
 							console.log(description[i]);
 
 							//render ('italian.ejs', {"name":ans[i].name});
 							
 				}
 
-return res.render('italian.ejs', {restoname:restoname,address:address,description:description,image:image});
+return res.render('italian.ejs', {restoname:restoname,address:address,description:description,image:image,cost:cost});
 				
 });
 
