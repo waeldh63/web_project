@@ -37,24 +37,8 @@
 	<script>
 		$(document).ready(function() {
 	
-			
-			$('#italian').click(function(){
+	
 
-$('#cuisine').hide();
-$( "#main" ).append( '<div id="cuisine_italy"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu1.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
-
-
-
-});
-			
-$('#american').click(function(){
-
-$('#cuisine_italy').hide();
-$( "#main" ).append( '<div id="cuisine_american"><div class="row" ><div class="col-lg-4 col-md-6 col-sm-12 col-12 "><div class="card" ><div class="img-holder"><img src="./image/menu2.jpg" class="card-img-top" ></div><div class="card-body"><h4 class="card-title">Al Forno! Straight Outta Italy</h4><p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p> </div></div></div> </div></div>'	 );
-
-
-
-});
 $('#download').click(function(){
 
 
@@ -106,32 +90,34 @@ $('#download').click(function(){
 	  </header><!-- End Header -->
 		<br><br><br><br>
 
-	<div class="container packages">
+
+	<div class="container packages ">
 		<div class="title mb-5">
 			<h1>Browse by Category</h1>
 			
 		</div>
+		
 		<div class="row">
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="italian">
-			
-					<a class="card rounded-circle w-100 h-100  " href="/italian">
-						<img src="./image/menu1.jpg" class="   w-100 h-100 rounded-circle" >
-						
+				<div class="card rounded-circle w-100 h-100  ">
 					
-						
-						</a>
+					<img src="./image/menu1.jpg" class="   w-100 h-100 rounded-circle" >
+					
+				  
+					
+				</div>
 				<div style="padding: 5px;">
 						<h4 class="card-title"style="text-align:center;">Italian</h4>
 					  </div>
 			</div>
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="american">
-				<a class="card rounded-circle w-100 h-100  " href="/lebanese">
+				<div class="card rounded-circle w-100 h-100  ">
 					
 					<img src="./image/menu2.jpg" class="   w-100 h-100 rounded-circle" >
 					
 				  
 					
-				</a>
+				</div>
 				<div style="padding: 5px;">
 						<h4 class="card-title"style="text-align:center;">Lebanese</h4>
 					  </div>
@@ -150,26 +136,26 @@ $('#download').click(function(){
 			</div>
 
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
-				<a class="card rounded-circle w-100 h-100  " href="/mexican">
+				<div class="card rounded-circle w-100 h-100  ">
 					
 					<img src="./image/menu4.jpg" class="   w-100 h-100 rounded-circle" >
 					
 				  
 					
-				</a>
+				</div>
 				<div style="padding: 5px;">
 						<h4 class="card-title"style="text-align:center;">Mexican</h4>
 					  </div>
 			</div>
 			
 			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
-				<a class="card rounded-circle w-100 h-100  " href="/american">
+				<div class="card rounded-circle w-100 h-100  ">
 					
 					<img src="./image/menu6.jpg" class="   w-100 h-100 rounded-circle" >
 					
 				  
 					
-				</a>
+				</div>
 				<div style="padding: 5px;">
 						<h4 class="card-title"style="text-align:center;">American</h4>
 					  </div>
@@ -178,10 +164,11 @@ $('#download').click(function(){
 		</div>
 
 
+
 		
 		<div class="title mb-5 mt-5">
 			<br>
-			<h1>Available Restaurants</h1>
+			<h1 class="mt-5"><span>Our Restaurants</span></h1>
 
 		</div>
 		<ul class="nav justify-content-center">
@@ -198,79 +185,30 @@ $('#download').click(function(){
 </ul>
 
 
-<div class="row" >
-	
-	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-		<div class="card" >
-			<div class="img-holder">
-				<img src="./image/menu1.jpg" class="card-img-top" >
-			</div>
-		  
-		  <div class="card-body">
-			<h4 class="card-title">Al Forno! Straight Outta Italy</h4>
-			<p class="card-text" style="color: rgb(105, 105, 105);"> Italian, Pizza, Continental, European...</p>
-		  </div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-		<div class="card" >
-		  <div class="img-holder">
-				<img src="./image/menu2.jpg" class="card-img-top" >
-			</div>
-		  <div class="card-body">
-			<h4 class="card-title">The Salad Story</h4>
-			<p class="card-text" style="color: rgb(105, 105, 105);"> Cafe, Healthy Food, Salad, Fast Food...</p>
-		  </div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-		<div class="card" >
-		  <div class="img-holder">
-				<img src="./image/menu3.jpg" class="card-img-top" >
-			</div>
-		  <div class="card-body">
-			<h4 class="card-title">The Irish House</h4>
-			<p class="card-text" style="color: rgb(105, 105, 105);"> European, American, Fast Food</p>
-		  </div>
-		</div>
-	</div>
+			<div class="row" >
+				
 
-	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-		<div class="card" >
-			<div class="img-holder">
-				<img src="./image/menu4.jpg" class="card-img-top" >
-			</div>
-		  
-		  <div class="card-body">
-			<h4 class="card-title">UBQ by Barbeque Nation</h4>
-			<p class="card-text" style="color: rgb(105, 105, 105);"> North Indian, BBQ, Biryani, Shake</p>
-		  </div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-		<div class="card" >
-		  <div class="img-holder">
-				<img src="./image/menu5.jpg" class="card-img-top" >
-			</div>
-		  <div class="card-body">
-			<h4 class="card-title">Dimsum & Co.</h4>
-			<p class="card-text" style="color: rgb(105, 105, 105);"> Chinese, Thai, Malaysian, Japanese...</p>
-		  </div>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-		<div class="card" >
-		  <div class="img-holder">
-				<img src="./image/menu6.jpg" class="card-img-top" >
-			</div>
-		  <div class="card-body">
-			<h4 class="card-title">The burger company</h4>
-			<p class="card-text" style="color: rgb(105, 105, 105);"> Burger, Fast Food, Beverages, Shake</p>
-		  </div>
-		</div>
-	</div>
+				<% for(var i = 0; i< restoname.length; i++){ %>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+					<div class="card" >
+						<div class="img-holder">
+							<img src="<%= image[i] %>" class="card-img-top" >
+						</div>
+				
+					
+					<div class="card-body">
+						<h4 class="card-title"><%= restoname[i] %></h4>
+						<h6 class="card-text"><%= description[i] %></h6>
+						<p class="card-text" style="color: rgb(105, 105, 105);"> <%= address[i] %></p>
+					</div>
+					</div>
+				</div><% } %>
 
-</div>
+
+				
+				
+			</div>
+		
 </div>
 	
 		

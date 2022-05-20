@@ -9,6 +9,7 @@ const client = new MongoClient("mongodb+srv://User:user12345@cluster0.fywre.mong
 var italian;
 var mexican;
 var lebanese;
+var american;
 
 
 router.get('/register', function (req, res, next) {
@@ -19,6 +20,46 @@ router.get('/browsefood', function (req, res, next) {
 	return res.render('browsefood.ejs');
 });
 
+
+
+
+
+router.get('/american', function (req, res, next) {
+
+
+
+	
+	client.connect();
+
+	american = client.db("chunk").collection("recipes");
+	console.log('Server is started test222 ');
+	var restoname = [];
+	var address = [];
+	var description = [];
+	var image = [];
+	
+
+
+	american.find({ "cuisine": "American" }).toArray().then((ans) => {
+					for(i=0;i<ans.length;i++){
+							//console.log(ans[i].name);
+							console.log("test2");
+							restoname[i]=ans[i].name;
+							address[i]=ans[i].address;
+							description[i]=ans[i].description;
+							image[i]=ans[i].image;
+							console.log(description[i]);
+
+							//render ('italian.ejs', {"name":ans[i].name});
+							
+				}
+
+return res.render('american.ejs', {restoname:restoname,address:address,description:description,image:image});
+				
+});
+
+	
+});
 
 
 
