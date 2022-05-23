@@ -17,15 +17,10 @@ router.get('/register', function (req, res, next) {
 
 	return res.render('register.ejs');
 });
+
 router.get('/browsefood', function (req, res, next) {
 	return res.render('browsefood.ejs');
 });
-
-
-
-
-
-
 
 router.get('/irish', function (req, res, next) {
 
@@ -63,11 +58,6 @@ return res.render('irish.ejs', {restoname:restoname,address:address,description:
 
 	
 });
-
-
-
-
-
 
 
 router.get('/american', function (req, res, next) {
@@ -108,9 +98,6 @@ return res.render('american.ejs', {restoname:restoname,address:address,descripti
 });
 
 
-
-
-
 router.get('/lebanese', function (req, res, next) {
 
 
@@ -147,7 +134,6 @@ return res.render('lebanese.ejs', {restoname:restoname,address:address,descripti
 
 	
 });
-
 
 
 router.get('/mexican', function (req, res, next) {
@@ -190,9 +176,6 @@ return res.render('mexican.ejs', {restoname:restoname,address:address,descriptio
 
 
 router.get('/italian', function (req, res, next) {
-
-
-
 	
 	client.connect();
 	italian = client.db("chunk").collection("recipes");
@@ -229,15 +212,11 @@ return res.render('italian.ejs', {restoname:restoname,address:address,descriptio
 });
 
 
-
-
-
-
-
 router.get('/', function (req, res, next) {
 	console.log("test");
 	return res.render('new_index.ejs');
 });
+
 
 router.post('/register', function(req, res, next) {
 	console.log(req.body);
@@ -289,11 +268,10 @@ router.post('/register', function(req, res, next) {
 	}
 });
 
+
 router.get('/login', function (req, res, next) {
 	return res.render('login.ejs');
 });
-
-
 
 
 router.get('/map', function (req, res, next) {
@@ -312,6 +290,8 @@ router.get('/map', function (req, res, next) {
 
 	
 });
+
+
 router.post('/login', function (req, res, next) {
 	//console.log(req.body);
 	User.findOne({email:req.body.email},function(err,data){
@@ -322,6 +302,7 @@ router.post('/login', function (req, res, next) {
 				req.session.userId = data.unique_id;
 				//console.log(req.session.userId);
 				res.send({"Success":"Success!"});
+
 				
 			}else{
 				res.send({"Success":"Wrong password!"});
@@ -331,8 +312,6 @@ router.post('/login', function (req, res, next) {
 		}
 	});
 });
-
-
 
 
 router.get('/profile', function (req, res, next) {
@@ -349,6 +328,7 @@ router.get('/profile', function (req, res, next) {
 	});
 });
 
+
 router.get('/logout', function (req, res, next) {
 	console.log("logout")
 	if (req.session) {
@@ -363,9 +343,11 @@ router.get('/logout', function (req, res, next) {
 }
 });
 
+
 router.get('/forgetpass', function (req, res, next) {
 	res.render("forget.ejs");
 });
+
 
 router.post('/forgetpass', function (req, res, next) {
 	//console.log('req.body');
@@ -394,5 +376,56 @@ router.post('/forgetpass', function (req, res, next) {
 	});
 	
 });
+
+
+router.get('/restaurant', function (req, res, next) {
+	//res.render("restaurant.ejs");
+	client.connect();
+	resto = client.db("chunk").collection("menu_item");
+	
+	var name = [];
+	var description = [];
+	var price = [];
+	var image = [];
+
+	resto.find({ "restaurant": req.query.resto }).toArray().then((ans) => {
+		for(i=0;i<ans.length;i++){
+			console.log("restooooooooo");
+			name[i]=ans[i].name;
+			description[i]=ans[i].description;
+			price[i]=ans[i].price;
+			image[i]=ans[i].image;
+			console.log(description[i]);
+		}
+	});
+
+	recipes = client.db("chunk").collection("recipes");
+	var rest = [];
+	var add = [];
+	var desc = [];
+	var bg = [];
+	var email = [];
+	var phone = [];
+	var location = [];
+	recipes.find({ "name": req.query.resto }).toArray().then((ans) => {
+		for(i=0;i<ans.length;i++){
+			console.log("recipeeessssss");
+			rest[i]=ans[i].name;
+			add[i]=ans[i].address;
+			desc[i]=ans[i].description;
+			bg[i]=ans[i].bg;
+			email[i]=ans[i].email;
+			phone[i]=ans[i].phone;
+			location[i]=ans[i].location;
+			console.log(desc[i]);
+		}
+		return res.render('restaurant.ejs', {name:name,description:description,price:price,image:image,rest:rest,add:add,desc:desc,bg:bg,email:email,phone:phone,location:location});
+	});
+});	
+
+
+
+
+
 
 module.exports = router;

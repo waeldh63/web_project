@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	  
+	<title>Chunk</title>
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+	  
+	  
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> </script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	  
+	  
+	  
+	  
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	  
+	<!-- Vendor CSS Files -->
+	<link href="vendor\animate.css\animate.min.css" rel="stylesheet">
+	<link href="vendor\aos\aos.css" rel="stylesheet">
+	<link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+	<link href="vendor\bootstrap-icons\bootstrap-icons.css" rel="stylesheet">
+	<link href="vendor\boxicons\css\boxicons.min.css" rel="stylesheet">
+	<link href="vendor\glightbox\css\glightbox.min.css" rel="stylesheet">
+	<link href="vendor\swiper\swiper-bundle.min.css" rel="stylesheet">
+	  
+	<!-- Template Main CSS File -->
+	<link href="css\new_style.css" rel="stylesheet">
+	  
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		  
+</head>
+
+<body>
+	<% for(var i = 0; i< name.length; i++){ %>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-cente">
+	  <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+  
+		<h1 class="logo me-auto me-lg-0"><a href="/">Chunk</a></h1>
+	   
+		<nav id="navbar" class="navbar order-last order-lg-0">
+		  <ul>
+			<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+			<li><a class="nav-link scrollto" href="#browse-food">Menu</a></li>
+			<li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+		  </ul>
+		  <i class="bi bi-list mobile-nav-toggle"></i>
+		</nav><!-- .navbar -->
+		<a href="#book-a-table" class="join-now-btn scrollto d-none d-lg-flex">Book a table</a>
+  
+	  </div>
+	</header><!-- End Header -->
+  
+	<!-- ======= Hero Section ======= -->
+	<section id="hero" class="d-flex align-items-center">
+	  <img src="<%= bg[i] %>" style="position: absolute; width: 100%; height: 100%; background-position : center center; background-repeat: no-repeat;background-size: cover;">
+	  <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100" style="z-index: 9;">
+		<div class="row">
+		  <div class="col-lg-8">
+			<h1>Welcome to <span><%= rest[i] %></span></h1>
+			<h2><%= desc[i] %></h2>
+			<div class="btns">
+			  <a href="#browse-food" class="join-now-btn animated fadeInUp scrollto">Our Menu</a>
+			  <a href="#book-a-table" class="join-now-btn animated fadeInUp scrollto">Book a Table</a>
+			</div>
+		  </div>
+  
+		</div>
+	  </div>
+	</section><!-- End Hero -->
+  
+	<main id="main">
+  
+  
+	  <!-- ======= Browse Menu Section ======= -->
+	  <section id="browse-food" class="browse-food">
+		<div class="container packages" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Browse Menu</h2>
+			<p>Check our wide variety of items</p>
+		  </div>
+  
+		  <div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+					<div class="card" >
+						<div class="img-holder">
+							<img src="<%= image[i] %>" class="card-img-top" >
+						</div>
+				
+						<div class="card-body">
+							<h4 class="card-title"><%= name[i] %></h4>
+							<p class="card-text" style="color: rgb(105, 105, 105);"> <%= description[i] %></p>
+							<p class="card-text" style="color: rgb(225, 22, 22);"> <%= price[i] %></p>
+
+						</div>
+					</div>
+				</div>
+		  </div>
+		</div>
+	  </section><!-- End Browse Food Section -->
+  
+	  <!-- ======= Book A Table Section ======= -->
+	  <section id="book-a-table" class="book-a-table">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Reservation</h2>
+			<p>Book a Table</p>
+		  </div>
+  
+		  <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+			<div class="row">
+			  <div class="col-lg-4 col-md-6 form-group">
+				<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+				<div class="validate"></div>
+			  </div>
+			  <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+				<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+				<div class="validate"></div>
+			  </div>
+			  <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+				<input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+				<div class="validate"></div>
+			  </div>
+			  <div class="col-lg-4 col-md-6 form-group mt-3">
+				<input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+				<div class="validate"></div>
+			  </div>
+			  <div class="col-lg-4 col-md-6 form-group mt-3">
+				<input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+				<div class="validate"></div>
+			  </div>
+			  <div class="col-lg-4 col-md-6 form-group mt-3">
+				<input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+				<div class="validate"></div>
+			  </div>
+			</div>
+			<div class="form-group mt-3">
+			  <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+			  <div class="validate"></div>
+			</div>
+			<div class="mb-3">
+			  <div class="loading">Loading</div>
+			  <div class="error-message"></div>
+			  <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+			</div>
+			<div class="text-center"><button type="submit">Book a Table</button></div>
+		  </form>
+  
+		</div>
+	  </section><!-- End Book A Table Section -->
+  
+	  <!-- ======= Contact Section ======= -->
+	  <section id="contact" class="contact">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Contact</h2>
+			<p>Contact Us</p>
+		  </div>
+		</div>
+  
+		<div data-aos="fade-up">
+		  <iframe style="border:0; width: 100%; height: 350px;" src="<%= location[i] %>" frameborder="0" allowfullscreen></iframe>
+		</div>
+  
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="row mt-5">
+  
+			<div class="col-lg-4">
+			  <div class="info">
+				<div class="address">
+				  <i class="bi bi-geo-alt"></i>
+				  <h4>Location:</h4>
+				  <p><%= add[i] %></p>
+				</div>
+  
+				<div class="open-hours">
+				  <i class="bi bi-clock"></i>
+				  <h4>Open Hours:</h4>
+				  <p>
+					Monday-Saturday:<br>
+					11:00 AM - 23:00 PM
+				  </p>
+				</div>
+  
+				<div class="email">
+				  <i class="bi bi-envelope"></i>
+				  <h4>Email:</h4>
+				  <p><%= email[i] %></p>
+				</div>
+  
+				<div class="phone">
+				  <i class="bi bi-phone"></i>
+				  <h4>Call:</h4>
+				  <p><%= phone[i] %></p>
+				</div>
+  
+			  </div>
+  
+			</div>
+  
+			<div class="col-lg-8 mt-5 mt-lg-0">
+  
+			  <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+				<div class="row">
+				  <div class="col-md-6 form-group">
+					<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+				  </div>
+				  <div class="col-md-6 form-group mt-3 mt-md-0">
+					<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+				  </div>
+				</div>
+				<div class="form-group mt-3">
+				  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+				</div>
+				<div class="form-group mt-3">
+				  <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
+				</div>
+				<div class="my-3">
+				  <div class="loading">Loading</div>
+				  <div class="error-message"></div>
+				  <div class="sent-message">Your message has been sent. Thank you!</div>
+				</div>
+				<div class="text-center"><button type="submit">Send Message</button></div>
+			  </form>
+  
+			</div>
+  
+		  </div>
+  
+		</div>
+	  </section><!-- End Contact Section -->
+  
+	</main><!-- End #main -->
+	<% } %>
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+	  <div class="container">
+		<div class="social-links mt-3">
+		  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+		  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+		  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+		  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+		  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+		</div>
+		<div class="copyright">
+		  &copy; Copyright <strong><span>Chunk</span></strong>. All Rights Reserved
+		</div>
+	  </div>
+	</footer><!-- End Footer -->
+  
+	<div id="preloader"></div>
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+	 <!-- Vendor JS Files -->
+	 <script src="vendor\aos\aos.js"></script>
+	 <script src="vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
+	 <script src="vendor\glightbox\js\glightbox.min.js"></script>
+	 <script src="vendor\isotope-layout\isotope.pkgd.min.js"></script>
+	 <script src="vendor\swiper\swiper-bundle.min.js"></script>
+	 <script src="vendor\php-email-form\validate.js"></script>
+   
+	 <script src="https://kit.fontawesome.com/5118cb3e8d.js" crossorigin="anonymous"></script>
+   
+	 <!-- Template Main JS File -->
+	 <script src="js\new_main.js"></script>
+  
+</body>
+  
+</html>
