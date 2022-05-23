@@ -14,66 +14,52 @@
 	
 
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="vendor\animate.css\animate.min.css" rel="stylesheet">
-  <link href="vendor\aos\aos.css" rel="stylesheet">
-  <link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
-  <link href="vendor\bootstrap-icons\bootstrap-icons.css" rel="stylesheet">
-  <link href="vendor\boxicons\css\boxicons.min.css" rel="stylesheet">
-  <link href="vendor\glightbox\css\glightbox.min.css" rel="stylesheet">
-  <link href="vendor\swiper\swiper-bundle.min.css" rel="stylesheet">
+	<!-- Vendor CSS Files -->
+	<link href="vendor\animate.css\animate.min.css" rel="stylesheet">
+	<link href="vendor\aos\aos.css" rel="stylesheet">
+	<link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+	<link href="vendor\bootstrap-icons\bootstrap-icons.css" rel="stylesheet">
+	<link href="vendor\boxicons\css\boxicons.min.css" rel="stylesheet">
+	<link href="vendor\glightbox\css\glightbox.min.css" rel="stylesheet">
+	<link href="vendor\swiper\swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="css\new_style.css" rel="stylesheet">
+	<!-- Template Main CSS File -->
+	<link href="css\new_style.css" rel="stylesheet">
 
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	</head>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
 
 <body>
 
 	<script>
 		$(document).ready(function() {
-	
+
 			$('#low').click(function(){
-
 				$('#none').fadeOut();
-
 				$('#hightolow').fadeOut();
 				$('#lowtohigh').fadeIn();
-
-});
+			});
 	
 			$('#hight').click(function(){
-
 				$('#none').fadeOut();
-
 				$('#hightolow').fadeIn();
 				$('#lowtohigh').fadeOut();
+			});
 
-});
-
-				$('#no').click(function(){
-
+			$('#no').click(function(){
 				$('#none').fadeIn();
-
 				$('#hightolow').fadeOut();
 				$('#lowtohigh').fadeOut();
+			});
 
-				});
-$('#download').click(function(){
-
-
-	$('html, body').animate({
-        scrollTop: $("#footer").offset().top
-    }, 800);
-
-
-
-});
-
+			$('#download').click(function(){
+				$('html, body').animate({
+					scrollTop: $("#footer").offset().top
+				}, 800);
+			});
 
 			$("#recipe").autocomplete({
 				source: async function(request, response) {
@@ -93,78 +79,64 @@ $('#download').click(function(){
 	</script>
 	
 	  <!-- ======= Header ======= -->
-	  <header id="header" class="fixed-top d-flex align-items-cente">
+	<header id="header" class="fixed-top d-flex align-items-cente">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 	
 		  <h1 class="logo me-auto me-lg-0"><a href="/">Chunk</a></h1>
-	
-		  <nav id="navbar" class="navbar order-last order-lg-0">
-			<ul>
-			  <li><a class="nav-link scrollto" href="#about">About us</a></li>
-			  <li><a class="nav-link scrollto" href="#browse-food">Browse </a></li>
-			  <li><a class="nav-link scrollto" href="#contact">Contact us</a></li>
-			  <li><a class="nav-link scrollto" href="#download">Download app</a></li>
-	
-			</ul>
-			<i class="bi bi-list mobile-nav-toggle"></i>
-		  </nav><!-- .navbar -->
 		  <a href="/register" class="join-now-btn scrollto d-none d-lg-flex">Join us Now</a>
 	
 		</div>
-	  </header><!-- End Header -->
-		<br><br><br><br>
+	</header><!-- End Header -->
+		
+	<br><br><br><br>
 
 
 	<div class="container packages ">
-		<div class="title mb-5">
-			<h1>Browse by Category</h1>
-			
-		</div>
 		
 		<div class="row">
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="italian">
+			<div class="col-lg col-md-3 col-sm-12 col-12 rounded-circle" id="italian">
 			
-					<a class="card rounded-circle w-100 h-100  " href="/italian">
-						<img src="./image/menu1.jpg" class="   w-100 h-75 rounded-circle" >
+					<a class="card rounded-circle w-75 h-75  "  style="background: none; align-items: center;" href="/italian">
+						<img src="./image/categories/italian.jpg" class="   w-75 h-75 rounded-circle" >
 						
-						<div style="padding: 5px;" class="mt-5">
+						<div style="padding: 5px; margin-top: 1rem !important;" class="mt-5">
 						<h4 class="card-title"style="text-align:center;">Italian</h4>
 					  </div>
 						
 						</a>
 			
 			</div>
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle" id="american">
-				<a class="card rounded-circle w-100 h-100  " href="/lebanese">
+			<div class="col-lg col-md-3 col-sm-12 col-12 rounded-circle">
+				<a class="card rounded-circle w-75 h-75  "  style="background: none; align-items: center;" href="/lebanese">
 					
-					<img src="./image/menu2.jpg" class="   w-100 h-75 rounded-circle" >
+					<img src="./image/categories/lebanese.jpg" class="   w-75 h-75 rounded-circle" >
 					
-				  	<div style="padding: 5px;" class="mt-5">
+				  	<div style="padding: 5px; margin-top: 1rem !important;" class="mt-5">
 						<h4 class="card-title"style="text-align:center;">Lebanese</h4>
 					  </div>
 					
 				</a>
 			
 			</div>
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
-				<a class="card rounded-circle w-100 h-100  " href="/irish">
+			<div class="col-lg col-md-3 col-sm-12 col-12 rounded-circle">
+				<a class="card rounded-circle w-75 h-75  " style="background: none; align-items: center;" href="/irish">
 					
-					<img src="./image/menu3.jpg" class="   w-100 h-75 rounded-circle" >
+					<img src="./image/categories/irish.jpg" class="   w-75 h-75 rounded-circle" >
 					
-				  	<div style="padding: 5px;" class="mt-5">
-						<h4 class="card-title"style="text-align:center;">Irish</h4>
+				  	<div style="padding: 5px; margin-top: 1rem !important;" class="mt-5">
+						<h4 class="card-title"style="text-align:center;     color: #fc2547;">Irish</h4>
 					  </div>
 					
 				</a>
 			
 			</div>
 
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
-				<a class="card rounded-circle w-100 h-100  " href="/mexican">
+			<div class="col-lg col-md-3 col-sm-12 col-12 rounded-circle">
+				<a class="card rounded-circle w-75 h-75  " style="background: none; align-items: center;" href="/mexican">
 					
-					<img src="./image/menu4.jpg" class="   w-100 h-75 rounded-circle" >
+					<img src="./image/categories/mexican.jpg" class="   w-75 h-75 rounded-circle" >
 					 
-				  	<div style="padding: 5px;" class="mt-5">
+				  	<div style="padding: 5px; margin-top: 1rem !important;" class="mt-5">
 						<h4 class="card-title"style="text-align:center;">Mexican</h4>
 					  </div>
 					
@@ -172,12 +144,12 @@ $('#download').click(function(){
 			
 			</div>
 			
-			<div class="col-lg-2 col-md-3 col-sm-12 col-12 rounded-circle">
-				<a class="card rounded-circle w-100 h-100  " href="/american">
+			<div class="col-lg col-md-3 col-sm-12 col-12 rounded-circle">
+				<a class="card rounded-circle w-75 h-75  " style="background: none; align-items: center;" href="/american">
 					
-					<img src="./image/menu6.jpg" class="   w-100 h-75 rounded-circle" >
+					<img src="./image/categories/american.jpg" class="   w-75 h-75 rounded-circle" >
 					
-				  	<div style="padding: 5px;" class="mt-5">
+				  	<div style="padding: 5px; margin-top: 1rem !important;" class="mt-5">
 						<h4 class="card-title"style="text-align:center;">American</h4>
 					  </div>
 					
@@ -187,31 +159,25 @@ $('#download').click(function(){
 
 		</div>
 
-
-
 		
-		<div class="title mb-5 mt-5">
-			<br>
-			<h1 class="mt-5"><span>Our Restaurants</span></h1>
-
+		<div class="section-title">
+			<h2>Restaurants</h2>
+			<p>Check our irish restaurants</p>
 		</div>
+
+
 		<ul class="nav justify-content-center mb-5">
- 
-  <li class="nav-item " id="low">
-	<div class="join-now-btn scrollto d-none d-lg-flex ">low => high</div>
- 
-  </li>
-  <li class="nav-item" id="hight">
-	<div class="join-now-btn scrollto d-none d-lg-flex">high => low</div>
-	
-    
-  </li>
-  <li class="nav-item" id="no">
-	<div class="join-now-btn scrollto d-none d-lg-flex">NO SORTING</div>
-	
-    
-  </li>
-</ul>
+			<li class="nav-item " id="low">
+				<div class="join-now-btn scrollto d-none d-lg-flex ">low => high</div>
+			
+			</li>
+			<li class="nav-item" id="hight">
+				<div class="join-now-btn scrollto d-none d-lg-flex">high => low</div>
+			</li>
+			<li class="nav-item" id="no">
+				<div class="join-now-btn scrollto d-none d-lg-flex">NO SORTING</div>
+			</li>
+		</ul>
 
 
 			<div class="row"  id="none">
@@ -359,24 +325,22 @@ $('#download').click(function(){
 			</div>
 </div>
 	
-		
-	
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="social-links mt-3">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Chunk</span></strong>. All Rights Reserved
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+	<footer id="footer" style="padding-top: 10px;">
+		<div class="container">
+		<div class="social-links mt-3">
+			<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+			<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+			<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+			<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+			<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+		</div>
+		<div class="copyright">
+			&copy; Copyright <strong><span>Chunk</span></strong>. All Rights Reserved
+		</div>
+		</div>
+	</footer><!-- End Footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/5118cb3e8d.js" crossorigin="anonymous"></script>
