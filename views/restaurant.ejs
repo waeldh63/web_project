@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -37,8 +35,33 @@
 		  
 </head>
 
+<script>
+	$(document).ready(function() {
+  
+	  $( "#sendEmail" ).submit(function(event) {
+				  event.preventDefault();
+  
+				  $.ajax({
+					  type: 'POST',
+					  url: '/send-email',
+					  data: $('#sendEmail').serialize(),
+					  dataType: "json",
+					  success: function(response){
+						  $('#sendEmail')[0].reset();
+			  document.getElementById("sent-message").style.display = "block";
+						  document.getElementById("sent-message").innerHTML=response.Success;
+			   },
+			   error: function() {
+			  document.getElementById("error-msg").style.display = "block";
+						  document.getElementById("error-msg").innerHTML=response.Failed;
+			   }
+			  })
+		});
+  
+	});
+  </script>
+
 <body>
-	<% for(var i = 0; i< name.length; i++){ %>
 	<!-- ======= Header ======= -->
 	<header id="header" class="fixed-top d-flex align-items-cente">
 	  <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
@@ -60,12 +83,12 @@
   
 	<!-- ======= Hero Section ======= -->
 	<section id="hero" class="d-flex align-items-center">
-	  <img src="<%= bg[i] %>" style="position: absolute; width: 100%; height: 100%; background-position : center center; background-repeat: no-repeat;background-size: cover;">
+	  <img src="<%= bg[0] %>" style="position: absolute; width: 100%; height: 100%; background-position : center center; background-repeat: no-repeat;background-size: cover;">
 	  <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100" style="z-index: 9;">
 		<div class="row">
 		  <div class="col-lg-8">
-			<h1>Welcome to <span><%= rest[i] %></span></h1>
-			<h2><%= desc[i] %></h2>
+			<h1>Welcome to <span><%= rest[0] %></span></h1>
+			<h2><%= desc[0] %></h2>
 			<div class="btns">
 			  <a href="#browse-food" class="join-now-btn animated fadeInUp scrollto">Our Menu</a>
 			  <a href="#" class="join-now-btn animated fadeInUp scrollto">Contact us</a>
@@ -73,7 +96,7 @@
 		  </div>
   
 		</div>
-	  </div>
+	  </div> 
 	</section><!-- End Hero -->
   
 	<main id="main">
@@ -89,6 +112,7 @@
 		  </div>
   
 		  <div class="row">
+			<% for(var i = 0; i< name.length; i++){ %>
 				<div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
 					<div class="card" >
 						<div class="img-holder">
@@ -102,7 +126,7 @@
 
 						</div>
 					</div>
-				</div>
+				</div><% } %>
 		  </div>
 		</div>
 	  </section><!-- End Browse Food Section -->
@@ -119,7 +143,7 @@
 		</div>
   
 		<div data-aos="fade-up">
-		  <iframe style="border:0; width: 100%; height: 350px;" src="<%= location[i] %>" frameborder="0" allowfullscreen></iframe>
+		  <iframe style="border:0; width: 100%; height: 350px;" src="<%= location[0] %>" frameborder="0" allowfullscreen></iframe>
 		</div>
   
 		<div class="container" data-aos="fade-up">
@@ -131,7 +155,7 @@
 				<div class="address">
 				  <i class="bi bi-geo-alt"></i>
 				  <h4>Location:</h4>
-				  <p><%= add[i] %></p>
+				  <p><%= add[0] %></p>
 				</div>
   
 				<div class="open-hours">
@@ -146,13 +170,13 @@
 				<div class="email">
 				  <i class="bi bi-envelope"></i>
 				  <h4>Email:</h4>
-				  <p><%= email[i] %></p>
+				  <p><%= email[0] %></p>
 				</div>
   
 				<div class="phone">
 				  <i class="bi bi-phone"></i>
 				  <h4>Call:</h4>
-				  <p><%= phone[i] %></p>
+				  <p><%= phone[0] %></p>
 				</div>
   
 			  </div>
@@ -161,38 +185,40 @@
   
 			<div class="col-lg-8 mt-5 mt-lg-0">
   
-			  <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-				<div class="row">
-				  <div class="col-md-6 form-group">
-					<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-				  </div>
-				  <div class="col-md-6 form-group mt-3 mt-md-0">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-				  </div>
-				</div>
-				<div class="form-group mt-3">
-				  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-				</div>
-				<div class="form-group mt-3">
-				  <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
-				</div>
-				<div class="my-3">
-				  <div class="loading">Loading</div>
-				  <div class="error-message"></div>
-				  <div class="sent-message">Your message has been sent. Thank you!</div>
-				</div>
-				<div class="text-center"><button type="submit">Send Message</button></div>
-			  </form>
+				<form method="post" id="sendEmail" role="form" class="php-email-form">
+					<div class="row">
+					  <div class="col-md-6 form-group">
+						<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+					  </div>
+					  <div class="col-md-6 form-group mt-3 mt-md-0">
+						<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+					  </div>
+					</div>
+					<div class="form-group mt-3">
+					  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+					</div>
+					<div class="form-group mt-3">
+					  <textarea class="form-control" name="message" id="message" rows="8" placeholder="Message" required></textarea>
+					</div>
+					<div class="my-3">
+					  <div class="loading">Loading</div>
+					  <div class="error-msg" id="error-msg"></div>
+					  <div class="sent-message" id="sent-message"></div>
+					</div>
+					<div class="text-center"><button type="submit">Send Message</button></div>
+				  </form>
   
 			</div>
   
 		  </div>
   
 		</div>
+
 	  </section><!-- End Contact Section -->
-  
+	  
 	</main><!-- End #main -->
-	<% } %>
+	
+	
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 	  <div class="container">
