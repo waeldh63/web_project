@@ -423,7 +423,32 @@ router.get('/restaurant', function (req, res, next) {
 	});
 });	
 
+router.post('/send-email', function (req, res) {
+	let transporter = nodeMailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 465,
+		secure: true,
+		auth: {
+			user: 'chunk.helpline@gmail.com',
+			pass: 'Chunk123!'
+		}
+	});
+	let mailOptions = {
+		from: req.body.email, // sender address
+		to: "chunk.helpline@gmail.com",
+		subject: req.body.subject, // Subject line
+		text: req.body.message, // plain text body
+	};
 
+	transporter.sendMail(mailOptions, (error, info) => {
+		if (error) {
+			return console.log(error);
+			res.send({"Failed":"There was an error. Please try again later!"});
+		}
+		console.log('Message %s sent: %s', info.messageId, info.response);
+		res.send({"Success":"Your message has been sent. Thank you!"});
+		});
+	});
 
 
 
